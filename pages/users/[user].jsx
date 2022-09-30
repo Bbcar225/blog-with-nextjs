@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 
 export default function User({ user }) {
   return (
@@ -13,12 +14,15 @@ export default function User({ user }) {
             <div className="card mb-3" style={{ borderRadius: "20px" }}>
               <div className="row g-0">
                 <div className="col-md-4 text-center align-self-center p-2">
-                  <img
-                    src={`https://ui-avatars.com/api/?name=${user.name}`}
-                    alt="Avatar"
-                    className="img-fluid my-5 rounded-circle"
-                    style={{ width: "80px" }}
-                  />
+                  <div>
+                    <Image
+                      src={`https://ui-avatars.com/api/?name=${user.name}`}
+                      alt="Avatar"
+                      className="img-fluid rounded-circle"
+                      width={80}
+                      height={80}
+                    />
+                  </div>
                   <h5>{user.name}</h5>
                   <p>{user.company.name}</p>
                 </div>

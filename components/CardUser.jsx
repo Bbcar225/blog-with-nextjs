@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CardUser(props) {
   const style_banner = {
@@ -13,12 +14,17 @@ export default function CardUser(props) {
         <div className="card h-100">
           <div className="rounded" style={style_banner}></div>
           <div className="card-body text-center">
-            <img
-              src={props.user.avatar}
-              style={{ width: "100px", marginTop: "-65px" }}
-              alt="User"
-              className="img-fluid img-thumbnail rounded-circle border-0 mb-3"
-            />
+            <div style={{ marginTop: "-65px" }}>
+              <Image
+                src={props.user.avatar}
+                alt={`Avatar ${props.user.name}`}
+                className="img-fluid img-thumbnail rounded-circle border-0"
+                width={100}
+                height={100}
+                placeholder="blur"
+                blurDataURL={props.user.avatar}
+              />
+            </div>
             <h5 className="card-title">{props.user.name}</h5>
             <p className="text-secondary mb-1">{props.user.company.name}</p>
             <p className="text-muted font-size-sm fw-bold">{`${props.user.address.city}, ${props.user.address.street}, ${props.user.address.suite}`}</p>
